@@ -3,7 +3,7 @@ CFLAGS = -Werror -Werror=vla -O2 -std=gnu2x -D_GNU_SOURCE
 all : printrandom clear
 
 printrandom : libRandomSource.so main.o
-	$(CC) main.o -L. -Wl,-rpath,. -oprintrandom -lRandomSource -fsanitize=leak,address
+	$(CC) main.o -oprintrandom 
 libRandomSource.so: random.o linear.o merge.o
 	$(CC) -shared -olibRandomSource.so linear.o random.o merge.o 
 random.o:
