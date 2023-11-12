@@ -18,7 +18,7 @@ main(int argc, char *argv[])
         fprintf(stderr, "Мало аргументов: %d\n", argc);
         exit(1);
     }
-    void *handle = dlopen("./libRandomSource.so", RTLD_LAZY);
+    void *handle = dlopen(NULL, RTLD_LAZY);
     if (handle == NULL) {
         fprintf(stderr, "Ошибка dlopen\n");
         exit(1);
