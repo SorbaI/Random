@@ -1,9 +1,9 @@
 CC = gcc
-CFLAGS = -Werror -Werror=vla -O2 -std=gnu2x -D_GNU_SOURCE
+CFLAGS = -O2 -Wall -Werror -std=gnu2x -D_GNU_SOURCE -fsanitize=address,leak,address -fno-sanitize-recover
 all : printrandom clear
 
 printrandom : libRandomSource.so main.o
-	$(CC) main.o -oprintrandom 
+	$(CC) main.o $(CFLAGS) -oprintrandom 
 libRandomSource.so: random.o linear.o merge.o
 	$(CC) -shared -olibRandomSource.so linear.o random.o merge.o 
 random.o:

@@ -4,6 +4,7 @@
 #include <errno.h>
 #include <stdlib.h>
 #include "random_source.h"
+
 static const char LINEAR[] = "linear";
 static const char RANDOM[] = "random";
 enum
